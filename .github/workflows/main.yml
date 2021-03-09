@@ -19,9 +19,11 @@ jobs:
         git submodule update --init
         chmod +x ./gradlew
         ./gradlew buildStorigDebug
+        ls -R
+        tree .
 
     - name: Upload apk
       uses: actions/upload-artifact@v2
       with:
         name: apk
-        path: smarttubetv/build/outputs/apk/*.apk
+        path: build/outputs/appDebug/apk/*.apk
