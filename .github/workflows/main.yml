@@ -13,15 +13,12 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Run
+    - name: Build with Gradle
       run: |
         cd $GITHUB_WORKSPACE
         git submodule update --init
-        #sudo ./gradlew buildStorigDebug
-    - name: Build with Gradle
-    - uses: eskatos/gradle-command-action@v1
-      with:
-        arguments: buildStorigDebug
+        chmod +x ./gradlew
+        ./gradlew buildStorigDebug
 
     - name: Upload apk
       uses: actions/upload-artifact@v2
