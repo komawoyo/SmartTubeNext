@@ -18,8 +18,7 @@ jobs:
         cd $GITHUB_WORKSPACE
         git submodule update --init
         chmod +x ./gradlew
-        ./gradlew buildStorigDebug
-        ls -R
+        ./gradlew
         tree .
 
     - name: Upload apk
