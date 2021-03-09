@@ -10,15 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
+    - uses: actions/setup-java@v1
       with:
-        java-version: 1.8
-    - name: Build with Gradle
-      run: |
-        cd $GITHUB_WORKSPACE
-        git submodule update --init
-        sudo ./gradlew buildStorigDebug
+        java-version: 11
+    - uses: eskatos/gradle-command-action@v1
+      with:
+        arguments: buildStorigDebug
 
     - name: Upload apk
       uses: actions/upload-artifact@v2
